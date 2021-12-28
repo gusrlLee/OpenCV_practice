@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0)
+project(arrayOP)
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+add_executable(arrayOP main.cpp)
+link_libraries(arrayOP ${OpenCV_LIBS})

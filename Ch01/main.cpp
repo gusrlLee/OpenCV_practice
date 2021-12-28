@@ -1,4 +1,5 @@
 #include<iostream>
+#include<unistd.h>
 #include "opencv2/opencv.hpp"
 #include "opencv2/core.hpp"
 
@@ -7,9 +8,9 @@ using namespace cv;
 
 int main(){
     cout << "Hello OpenCV" << CV_VERSION << "\n";
-    
-    Mat image = imread("lena.jpg");
-
+    cout << getcwd() << "\n";   
+    Mat image = imread("lena.png");
+    cout << getBuildInformation() << endl;
     if(image.empty()){
         cerr << "Image load failed\n";
         return -1;
