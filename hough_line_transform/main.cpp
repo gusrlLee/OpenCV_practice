@@ -17,9 +17,9 @@ int main(){
     }
     resize(image, image, Size(720, 480));
 
-    // cvtColor(image, dst, COLOR_BGR2GRAY);
+    cvtColor(image, dst, COLOR_BGR2GRAY);
 
-    Canny(image, cdst, 120, 250, 3);
+    Canny(dst, cdst, 150, 250, 3);
 
     HoughLines(cdst, lines, 1, CV_PI / 150, 150, 0, 0);
     for(int i=0; i<lines.size(); i++){
