@@ -61,7 +61,7 @@ void dilation(int, void*){
         dilation_type = cv::MORPH_RECT;
     }
     else if(dilation_elem == 1){
-        dilation_type = cv::MARKER_CROSS;ma
+        dilation_type = cv::MARKER_CROSS;
     }
     else if(dilation_elem == 2){
         dilation_type = cv::MORPH_ELLIPSE;
