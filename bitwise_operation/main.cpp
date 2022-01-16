@@ -6,7 +6,7 @@ using namespace std;
 using namespace cv;
 
 int main(){
-    Mat image = imread("../lena.png", 0);
+    Mat image = imread("../../data/lena.png", 0);
     resize(image, image, Size(720, 480));
     printf("image rol : %d\n image col : %d\nimage size %d\n", image.rows, image.cols, image.type());
     Mat mask(Size(image.cols, image.rows) , CV_8UC1, Scalar(0));
