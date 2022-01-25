@@ -16,7 +16,7 @@ const char* coner_window_name = "harries coner";
 void cornerHarris_demo( int, void* );
 
 int main(int argc, char* argv[]){
-    src = imread("../building.jpg");
+    src = imread("../../data/building.jpg");
 
     if(src.empty()){
         printf("CANNOT OPEN IMAGE\n");
