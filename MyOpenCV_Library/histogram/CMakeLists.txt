@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.0)
+project(histogram)
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+add_compile_options("-g")
+add_executable(histogram main.cpp)
+target_link_libraries(histogram ${OpenCV_LIBS})
