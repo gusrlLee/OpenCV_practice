@@ -23,7 +23,7 @@ static void cannyThreshold(int a, void* b){
 }
 
 int main(){
-    src = imread("../../data/lena.png");
+    src = imread("../../../data/lena.jpg");
     if(src.empty()){
         cout << "CANNOT OPENED IMAEG";
         return -1;
