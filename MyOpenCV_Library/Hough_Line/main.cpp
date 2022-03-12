@@ -50,7 +50,6 @@ int main(int argc, char** argv){
             if(edge_image.at<uchar>(y, x) == 255){
                 for(int theta=0; theta<=180; theta++){
                     rho = round(y * cos(theta - 90) + x * sin(theta - 90)) + max_distance;
-                    std::cout << rho << std::endl;
                     A[rho][theta]++;
                 }
             }
