@@ -10,14 +10,14 @@ using namespace cv;
 
 int main(int argc, char** argv){
     // load image -> gray image
-    cv::Mat left_image = cv::imread("../../../data/left.jpg", IMREAD_GRAYSCALE);
-    cv::Mat right_image = cv::imread("../../../data/right.jpg", IMREAD_GRAYSCALE);
+    cv::Mat right_image = cv::imread("../../../data/left.jpg", IMREAD_GRAYSCALE);
+    cv::Mat left_image = cv::imread("../../../data/right.jpg", IMREAD_GRAYSCALE);
 
     std::vector<cv::KeyPoint> keypoints_1, keypoints_2;
     cv::Mat descriptors_1, descriptors_2; 
 
     // SURF detector
-    int min_hessian = 300;
+    int min_hessian = 500;
     Ptr<SURF> detector = SURF::create(min_hessian);
 
     detector->detectAndCompute( left_image, noArray(), keypoints_1, descriptors_1 );
@@ -67,7 +67,7 @@ int main(int argc, char** argv){
         points2.push_back(keypoints_2[good_matches[i].trainIdx].pt);
     }
 
-    Mat fundamental_matrix = findFundamentalMat(points1, points2, FM_RANSAC);
+    Mat fundamental_matrix = findFundamentalMat(points1, points2, FM_8POINT);
 
     cout << "F matrix is " << std::endl << fundamental_matrix << std::endl;
     cout << "points1 size = " << points1.size() << std::endl;
