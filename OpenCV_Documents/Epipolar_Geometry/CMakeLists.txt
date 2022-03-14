@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.0)
+add_compile_options("-g" "-Wall" )
+project(Epipolar_Geometry)
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLDUE_DIRS})
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
