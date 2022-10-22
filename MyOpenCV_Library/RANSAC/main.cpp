@@ -6,7 +6,7 @@
 
 
 int addNoiseFunction(int x){
-    return 0.6 * x + 10 + (std::rand() % 30);
+    return 0.6 * x + 10 + (std::rand() % 10);
 }
 
 float f(const float a, const float b, int x){
@@ -73,7 +73,6 @@ int main(int argc, char** argv){
 
         // extract best model 
         if(inlier_counter > max_inlier_count){
-            max_inlier_count = inlier_counter;
             best_a = gradient;
             best_b = y_intercept;
         }
@@ -84,7 +83,7 @@ int main(int argc, char** argv){
     }
 
     std::cout << "best a is " << best_a << " best_b is " << best_b << std::endl;
-    std::cout << "Max inlier count : " << max_inlier_count << "\n";
+    std::cout << "Max inlier count : " << max_inlier_count << std::endl;
     // draw line
     cv::cvtColor(image, image, cv::COLOR_GRAY2BGR);
     for(int i=0; i<300; i++){

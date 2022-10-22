@@ -29,7 +29,7 @@ int main(int argc, char* argv[]){
         pBackSub = createBackgroundSubtractorKNN();
     }
 
-    VideoCapture capture("../../data/car-detection.mp4");
+    VideoCapture capture("../../../data/cars.mp4");
     if(!capture.isOpened()){
         cout << "CANNOT OPENED VIDEO!\n";
         return -1;

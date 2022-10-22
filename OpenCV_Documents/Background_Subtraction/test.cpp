@@ -5,7 +5,7 @@ using namespace std;
 using namespace cv;
 
 int main(){
-    VideoCapture cap("../../data/worker-zone-detection.mp4");
+    VideoCapture cap("../../../data/cars.mp4");
     if(!cap.isOpened()){
         cout << "CANNOT OPENED VIDEO!\n";
         return -1;

@@ -8,7 +8,7 @@ using namespace cv;
 
 int main(){
     cout << "Hello OpenCV" << CV_VERSION << "\n";
-    cout << getcwd() << "\n";   
+    //cout << getcwd() << "\n";   
     Mat image = imread("lena.png");
     cout << getBuildInformation() << endl;
     if(image.empty()){

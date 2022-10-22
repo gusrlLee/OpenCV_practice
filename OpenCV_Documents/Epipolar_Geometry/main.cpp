@@ -23,32 +23,11 @@ int main(int argc, char** argv){
     detector->detectAndCompute( left_image, noArray(), keypoints_1, descriptors_1 );
     detector->detectAndCompute( right_image, noArray(), keypoints_2, descriptors_2 );
 
+    // use FLANN algorithm
     Ptr<DescriptorMatcher> matcher = DescriptorMatcher::create(DescriptorMatcher::FLANNBASED);
     std::vector<std::vector<DMatch>> knn_matches;
     matcher->knnMatch(descriptors_1, descriptors_2, knn_matches, 2);
 
-//    // ORB detector
-//    cv::Ptr<FeatureDetector> detector = ORB::create();
-//    cv::Ptr<DescriptorExtractor> descriptor = ORB::create();
-//
-//    // detection feature and compute
-//    detector->detectAndCompute(left_image, noArray(), keypoints_1, descriptors_1);
-//    detector->detectAndCompute(right_image, noArray(), keypoints_2, descriptors_2);
-//
-//    // define parameters for ORB feature detector
-//    const static auto index_params = new cv::flann::IndexParams();
-//    index_params->setAlgorithm(cvflann::FLANN_INDEX_LSH);
-//    index_params->setInt("table_number", 6);
-//    index_params->setInt("key_size", 12);
-//    index_params->setInt("multi_probe_level", 1);
-//
-//    const static auto search_params = new cv::flann::SearchParams();
-//    search_params->setInt("checks", 20);
-//
-//    std::vector<std::vector<DMatch>> knn_matches;
-//    const static auto flann = cv::FlannBasedMatcher(index_params, search_params);
-//    flann.knnMatch(descriptors_2, descriptors_1, knn_matches, 2);
-//
     cout << "knn match vector size = " << knn_matches.size() << std::endl;
 
     const float ratio_thresh = 0.7f;

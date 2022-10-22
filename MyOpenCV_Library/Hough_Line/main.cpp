@@ -23,7 +23,7 @@ int main(int argc, char** argv){
     cv::Mat edge_image;
 
     // image load 
-    image = cv::imread("../../../data/sudoku.png");
+    image = cv::imread("../../../data/dot1.png");
     if(image.empty()){
         std::cout << "CANNOT OPENED IMAGE\n" << std::endl;
         return 1;
@@ -47,7 +47,7 @@ int main(int argc, char** argv){
     for(int y=0; y<edge_image.rows; y++){
         for(int x=0; x<edge_image.cols; x++){
             // if point is edge point, 
-            if(edge_image.at<uchar>(y, x) == 255){
+            if(edge_image.at<uchar>(y, x) > 0){
                 for(int theta=0; theta<=180; theta++){
                     rho = round(y * cos(theta - 90) + x * sin(theta - 90)) + max_distance;
                     A[rho][theta]++;
@@ -62,9 +62,10 @@ int main(int argc, char** argv){
     std::cout << "line draw ... "<< std::endl;
     for(int i=0; i<2 * max_distance; i++){
         for(int j=0; j<180; j++){
-            if(A[i][j] >= 150){
+            if(A[i][j] >= 10){
                 int rho = i - max_distance;
                 int theta = j - 90;
+                std::cout << "rho = " << rho << ", theta = " << theta << std::endl;
                 
                 cv::Point p1, p2;
                 polarToCartesian(rho, theta, p1, p2);
@@ -74,9 +75,9 @@ int main(int argc, char** argv){
         }
     }
 
-    cv::Point dummy1(10, 10), dummy2(100, 100);
+    //cv::Point dummy1(10, 10), dummy2(100, 100);
 
-    cv::line(output, dummy1, dummy2, cv::Scalar(0, 0, 255), 1, cv::LINE_AA);
+    //cv::line(output, dummy1, dummy2, cv::Scalar(0, 0, 255), 1, cv::LINE_AA);
 
     cv::imshow("output", output);
 

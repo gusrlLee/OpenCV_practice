@@ -24,7 +24,7 @@ void myShiTomasiFunction(int, void*);
 void myHarrisFunction(int, void*);
 
 int main(int argc, char**argv){
-    src = imread("../../data/building.jpg");
+    src = imread("../../../data/lena.jpg");
     if(src.empty()){
         cout << "CANNOT OPEN IMAEG\n";
         return -1;
