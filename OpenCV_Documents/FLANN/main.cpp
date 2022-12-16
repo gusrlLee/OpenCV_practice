@@ -7,8 +7,8 @@ using namespace cv;
 using namespace cv::xfeatures2d;
 
 int main(){
-    Mat image1 = imread("../../data/box.png", IMREAD_GRAYSCALE);
-    Mat image2 = imread("../../data/box_in_scene.png", IMREAD_GRAYSCALE);
+    Mat image1 = imread("../../../data/box.png", IMREAD_GRAYSCALE);
+    Mat image2 = imread("../../../data/box_in_scene.png", IMREAD_GRAYSCALE);
 
     if(image1.empty() || image2.empty()){
         std::cout << "CANNOT OPEN IMAGE\n";
